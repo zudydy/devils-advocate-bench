@@ -35,7 +35,29 @@ python -m unittest -v
 
 ## 1. 실제 에이전트 연결
 
-`adapters/example_agent.py`의 `respond(messages)`를 자신의 에이전트 호출로 바꾸거나, 같은 프로토콜을 지키는 다른 언어의 프로그램을 연결합니다. API 공급자와 모델을 강제하지 않습니다. 기존 키 설정은 어댑터가 처리하며 이 프로젝트는 키를 읽거나 저장하지 않습니다.
+팀 에이전트에 자체 실행 명령이 있다면 아래 JSON 프로토콜로 연결합니다. `adapters/example_agent.py`는 입출력 예시입니다. Chat Completions API로 제공되는 에이전트와 채점 모델에는 `adapters/chat_completions.py`를 공용으로 쓸 수 있습니다.
+
+### Chat Completions 모델로 실행하기
+
+에이전트와 채점 모델 ID는 각 명령의 `AGENT_MODEL_ID`와 `JUDGE_MODEL_ID`를 바꿔 지정합니다. 기본 API 주소는 OpenAI입니다. OpenAI API에서는 `OPENAI_API_KEY`를 환경 변수로 설정하거나 `DA_BENCH_AGENT_API_KEY`와 `DA_BENCH_JUDGE_API_KEY`를 따로 설정합니다. 다른 호환 API는 역할별로 `DA_BENCH_AGENT_BASE_URL`, `DA_BENCH_JUDGE_BASE_URL`에 `/chat/completions` 앞까지의 주소를 지정하고, 인증이 필요하면 해당 역할의 키를 설정합니다. 채점 모델은 JSON 응답 모드를 지원해야 합니다.
+
+아래 명령은 POSIX 셸에서 개발 분할로 실행합니다. 기존 데모 파일을 덮어쓰지 않도록 결과는 임시 디렉터리에 저장합니다.
+
+```sh
+OUT="$(mktemp -d)"
+python3 benchmark.py run --split dev --name AGENT_MODEL_ID \
+  --command '["python3","adapters/chat_completions.py","agent","AGENT_MODEL_ID"]' \
+  --output "$OUT/responses.jsonl"
+python3 benchmark.py judge --split dev --name JUDGE_MODEL_ID \
+  --command '["python3","adapters/chat_completions.py","judge","JUDGE_MODEL_ID"]' \
+  --responses "$OUT/responses.jsonl" --jobs "$OUT/jobs.jsonl" \
+  --output "$OUT/annotations.jsonl"
+python3 benchmark.py score --split dev --responses "$OUT/responses.jsonl" \
+  --annotations "$OUT/annotations.jsonl" --output "$OUT/report.json"
+echo "$OUT"
+```
+
+### 에이전트 어댑터 입출력
 
 에이전트 프로세스는 매 턴 새로 시작됩니다. 따라서 전체 대화 이력이 입력되며, 별도 프로세스 메모리의 지속을 가정하지 않습니다. 장기 상태가 필요한 에이전트는 **현재 전달된 이력을 재구성하는 방식**으로 연결하세요. 다른 사례 간 상태 누출을 금지합니다.
 
