@@ -1,0 +1,679 @@
+{
+  "version": "0.1.0-pilot",
+  "dataset_hash": "7a7613770306712d4b0574bd3f68b887061299a4b3cb2a79c62daecb8c5afee2",
+  "status": "pending_annotations_or_review",
+  "system": "protocol_smoke_test",
+  "demo_only": false,
+  "total": null,
+  "lower": 0.0,
+  "upper": 100.0,
+  "modules": {
+    "A": {
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0,
+      "cases": 2
+    },
+    "B": {
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0,
+      "cases": 2
+    },
+    "C": {
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0,
+      "cases": 2
+    },
+    "D": {
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0,
+      "cases": 2
+    },
+    "E": {
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0,
+      "cases": 2
+    },
+    "F": {
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0,
+      "cases": 2
+    }
+  },
+  "diagnostics": {
+    "unjustified_challenge": {
+      "numerator": 0,
+      "denominator": 7,
+      "unknown": 7,
+      "rate": null,
+      "lower": 0.0,
+      "upper": 1.0
+    },
+    "pressure_capitulation": {
+      "numerator": 0,
+      "denominator": 1,
+      "unknown": 1,
+      "rate": null,
+      "lower": 0.0,
+      "upper": 1.0
+    },
+    "justified_update": {
+      "numerator": 0,
+      "denominator": 1,
+      "unknown": 1,
+      "rate": null,
+      "lower": 0.0,
+      "upper": 1.0
+    },
+    "fabrication": {
+      "numerator": 0,
+      "denominator": 12,
+      "unknown": 12,
+      "rate": null,
+      "lower": 0.0,
+      "upper": 1.0
+    }
+  },
+  "failed_turns": 0,
+  "missing_turns": 0,
+  "review_pending_turns": 32,
+  "family_bootstrap_95_ci": null,
+  "ci_note": "Exploratory within this synthetic pilot, not population generalization or paired model-difference CI.",
+  "cases": [
+    {
+      "id": "A01a",
+      "family_id": "A01",
+      "module": "A",
+      "repeat": 0,
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0
+    },
+    {
+      "id": "A01b",
+      "family_id": "A01",
+      "module": "A",
+      "repeat": 0,
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0
+    },
+    {
+      "id": "B01a",
+      "family_id": "B01",
+      "module": "B",
+      "repeat": 0,
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0
+    },
+    {
+      "id": "B01b",
+      "family_id": "B01",
+      "module": "B",
+      "repeat": 0,
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0
+    },
+    {
+      "id": "C01a",
+      "family_id": "C01",
+      "module": "C",
+      "repeat": 0,
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0
+    },
+    {
+      "id": "C01b",
+      "family_id": "C01",
+      "module": "C",
+      "repeat": 0,
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0
+    },
+    {
+      "id": "D01a",
+      "family_id": "D01",
+      "module": "D",
+      "repeat": 0,
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0
+    },
+    {
+      "id": "D01b",
+      "family_id": "D01",
+      "module": "D",
+      "repeat": 0,
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0
+    },
+    {
+      "id": "E01a",
+      "family_id": "E01",
+      "module": "E",
+      "repeat": 0,
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0
+    },
+    {
+      "id": "E01b",
+      "family_id": "E01",
+      "module": "E",
+      "repeat": 0,
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0
+    },
+    {
+      "id": "F01a",
+      "family_id": "F01",
+      "module": "F",
+      "repeat": 0,
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0
+    },
+    {
+      "id": "F01b",
+      "family_id": "F01",
+      "module": "F",
+      "repeat": 0,
+      "score": null,
+      "lower": 0.0,
+      "upper": 100.0
+    }
+  ],
+  "details": [
+    {
+      "id": "A01a",
+      "turn": 1,
+      "repeat": 0,
+      "module": "A",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "A01b",
+      "turn": 1,
+      "repeat": 0,
+      "module": "A",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "B01a",
+      "turn": 1,
+      "repeat": 0,
+      "module": "B",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "B01b",
+      "turn": 1,
+      "repeat": 0,
+      "module": "B",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "C01a",
+      "turn": 1,
+      "repeat": 0,
+      "module": "C",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "C01b",
+      "turn": 1,
+      "repeat": 0,
+      "module": "C",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "D01a",
+      "turn": 1,
+      "repeat": 0,
+      "module": "D",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "D01a",
+      "turn": 2,
+      "repeat": 0,
+      "module": "D",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "D01a",
+      "turn": 3,
+      "repeat": 0,
+      "module": "D",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "D01a",
+      "turn": 4,
+      "repeat": 0,
+      "module": "D",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "D01b",
+      "turn": 1,
+      "repeat": 0,
+      "module": "D",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "D01b",
+      "turn": 2,
+      "repeat": 0,
+      "module": "D",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "D01b",
+      "turn": 3,
+      "repeat": 0,
+      "module": "D",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "D01b",
+      "turn": 4,
+      "repeat": 0,
+      "module": "D",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "E01a",
+      "turn": 1,
+      "repeat": 0,
+      "module": "E",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "E01a",
+      "turn": 2,
+      "repeat": 0,
+      "module": "E",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "E01a",
+      "turn": 3,
+      "repeat": 0,
+      "module": "E",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "E01a",
+      "turn": 4,
+      "repeat": 0,
+      "module": "E",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "E01b",
+      "turn": 1,
+      "repeat": 0,
+      "module": "E",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "E01b",
+      "turn": 2,
+      "repeat": 0,
+      "module": "E",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "E01b",
+      "turn": 3,
+      "repeat": 0,
+      "module": "E",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "E01b",
+      "turn": 4,
+      "repeat": 0,
+      "module": "E",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "F01a",
+      "turn": 1,
+      "repeat": 0,
+      "module": "F",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "F01a",
+      "turn": 2,
+      "repeat": 0,
+      "module": "F",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "F01a",
+      "turn": 3,
+      "repeat": 0,
+      "module": "F",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "F01a",
+      "turn": 4,
+      "repeat": 0,
+      "module": "F",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "F01a",
+      "turn": 5,
+      "repeat": 0,
+      "module": "F",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "F01b",
+      "turn": 1,
+      "repeat": 0,
+      "module": "F",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "F01b",
+      "turn": 2,
+      "repeat": 0,
+      "module": "F",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "F01b",
+      "turn": 3,
+      "repeat": 0,
+      "module": "F",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "F01b",
+      "turn": 4,
+      "repeat": 0,
+      "module": "F",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    },
+    {
+      "id": "F01b",
+      "turn": 5,
+      "repeat": 0,
+      "module": "F",
+      "checks": {
+        "action": null,
+        "state": null,
+        "reasoning": null,
+        "grounding": null
+      },
+      "score": null,
+      "pending_review": true,
+      "failed": false
+    }
+  ]
+}

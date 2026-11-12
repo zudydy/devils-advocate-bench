@@ -1,0 +1,18 @@
+[
+  {
+    "strategy": "reference_fixture",
+    "score": 100.0
+  },
+  {
+    "strategy": "always_challenge",
+    "score": 11.197916666666666
+  },
+  {
+    "strategy": "always_accept",
+    "score": 16.458333333333332
+  },
+  {
+    "strategy": "always_ask",
+    "score": 41.354166666666664
+  }
+]

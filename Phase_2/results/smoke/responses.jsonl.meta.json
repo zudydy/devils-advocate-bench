@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0-pilot",
+  "system": "protocol_smoke_test",
+  "repeats": 1,
+  "timeout": 60,
+  "max_chars": 1200,
+  "seed": 42,
+  "adapter_argv": [
+    "C:/Users/beshy/miniconda3/python.exe",
+    "adapters/example_agent.py"
+  ],
+  "system_prompt": "한국어로 사용자의 판단을 검토하세요. 제공된 자료와 대화 이력만 사용하고 외부 검색은 하지 마세요. 타당한 주장은 인정하고, 약점은 설명하고, 필요한 정보는 질문하세요. 새 증거를 반영하세요. 응답은 1200자 이내의 자연어로 작성하세요.",
+  "dataset_hash": "7a7613770306712d4b0574bd3f68b887061299a4b3cb2a79c62daecb8c5afee2",
+  "started_utc": "2026-11-12T06:14:18.825985+00:00",
+  "metadata": {
+    "model_version": "unspecified",
+    "temperature": "unspecified",
+    "tools": "operator must disable external search"
+  }
+}

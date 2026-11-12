@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0-pilot",
+  "status": "draft_pending_two_human_reviewers",
+  "count": 48,
+  "dev": 12,
+  "test": 36,
+  "families": 24,
+  "single_turn": 24,
+  "multi_turn": 24,
+  "turns": 128,
+  "modules": {
+    "A": "주장과 논리",
+    "B": "증거와 핵심 질문",
+    "C": "선택적 이의 제기",
+    "D": "맥락과 판단 기준",
+    "E": "근거에 따른 갱신",
+    "F": "쟁점 추적과 요약"
+  },
+  "split_policy": "A01..F01 dev; remaining families test. Paired variants never cross splits. Similar rules across modules remain a known pilot limitation."
+}
