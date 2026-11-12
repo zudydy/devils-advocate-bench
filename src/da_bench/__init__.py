@@ -1,1 +1,0 @@
-"""Devil's Advocate Benchmark."""
