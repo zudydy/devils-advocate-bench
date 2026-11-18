@@ -9,6 +9,7 @@ SYSTEM='한국어로 사용자의 판단을 검토하세요. 제공된 자료와
 FAILED_RESPONSE='[응답 실패]'
 ACTIONS={'accept','challenge','ask','conditional','other'}
 STATES={'supported','unsupported','refuted','unknown','other'}
+SPLITS=('dev','test','all','ko-pragmatics')
 
 def read_jsonl(path):
     with Path(path).open(encoding='utf-8-sig') as f:
@@ -19,7 +20,8 @@ def write_jsonl(path,rows):
     p.write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in rows),encoding='utf-8')
 
 def load_cases(split='all'):
-    return [c for s in ('dev','test') if split in ('all',s) for c in read_jsonl(ROOT/'data'/f'{s}.jsonl')]
+    splits = ('dev', 'test') if split == 'all' else (split,)
+    return [case for name in splits for case in read_jsonl(ROOT / 'data' / f'{name}.jsonl')]
 
 def digest(value):
     return hashlib.sha256(json.dumps(value,ensure_ascii=False,sort_keys=True).encode()).hexdigest()
@@ -247,12 +249,16 @@ def demo(args):
         result=report(responses,annotations,cases);(out/f'{strategy}.report.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8');html_report(result,out/f'{strategy}.html');summary.append({'strategy':strategy,'score':result['total']})
     (out/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8');write_jsonl(out/'review_jobs.jsonl',judge_jobs(responses,cases));print(json.dumps(summary,indent=2))
 
-def validate(_):
-    cases=load_cases();assert len(cases)==48;assert len({c['id'] for c in cases})==48
+def validate(args):
+    cases = load_cases(args.split)
+    assert cases and len({case['id'] for case in cases}) == len(cases)
+    if args.split == 'all':
+        assert len(cases) == 48
+    turn_counts = (1, 2) if args.split == 'ko-pragmatics' else (1, 4, 5)
     fam=collections.defaultdict(set)
     for c in cases:
         fam[c['family_id']].add(c['split'])
-        assert len(c['turns']) in (1,4,5)
+        assert len(c['turns']) in turn_counts
         for t in c['turns']:
             assert set(t['gold']['actions'])<=ACTIONS
             assert t['gold']['required']
@@ -261,11 +267,11 @@ def validate(_):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='task',required=True)
-    a=sub.add_parser('validate');a.set_defaults(fn=validate)
+    a=sub.add_parser('validate');a.add_argument('--split',choices=SPLITS,default='all');a.set_defaults(fn=validate)
     a=sub.add_parser('demo');a.add_argument('--output',default=str(ROOT/'results'/'demo'));a.set_defaults(fn=demo)
-    a=sub.add_parser('run');a.add_argument('--command',required=True,help='JSON argv array, e.g. ["python","adapter.py"]');a.add_argument('--name',required=True);a.add_argument('--split',choices=['dev','test','all'],default='dev');a.add_argument('--repeats',type=int,default=1);a.add_argument('--timeout',type=float,default=60);a.add_argument('--seed',type=int,default=42);a.add_argument('--metadata');a.add_argument('--output',required=True);a.set_defaults(fn=run)
-    a=sub.add_parser('judge');a.add_argument('--responses',required=True);a.add_argument('--split',choices=['dev','test','all'],default='dev');a.add_argument('--jobs',default='judge_jobs.jsonl');a.add_argument('--command');a.add_argument('--timeout',type=float,default=60);a.add_argument('--name',default='unspecified-judge');a.add_argument('--output',default='annotations.jsonl');a.set_defaults(fn=judge)
-    a=sub.add_parser('score');a.add_argument('--responses',required=True);a.add_argument('--annotations');a.add_argument('--split',choices=['dev','test','all'],default='dev');a.add_argument('--output',default='report.json');a.set_defaults(fn=score)
+    a=sub.add_parser('run');a.add_argument('--command',required=True,help='JSON argv array, e.g. ["python","adapter.py"]');a.add_argument('--name',required=True);a.add_argument('--split',choices=SPLITS,default='dev');a.add_argument('--repeats',type=int,default=1);a.add_argument('--timeout',type=float,default=60);a.add_argument('--seed',type=int,default=42);a.add_argument('--metadata');a.add_argument('--output',required=True);a.set_defaults(fn=run)
+    a=sub.add_parser('judge');a.add_argument('--responses',required=True);a.add_argument('--split',choices=SPLITS,default='dev');a.add_argument('--jobs',default='judge_jobs.jsonl');a.add_argument('--command');a.add_argument('--timeout',type=float,default=60);a.add_argument('--name',default='unspecified-judge');a.add_argument('--output',default='annotations.jsonl');a.set_defaults(fn=judge)
+    a=sub.add_parser('score');a.add_argument('--responses',required=True);a.add_argument('--annotations');a.add_argument('--split',choices=SPLITS,default='dev');a.add_argument('--output',default='report.json');a.set_defaults(fn=score)
     args=p.parse_args();args.fn(args)
 
 if __name__=='__main__':
